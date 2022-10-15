@@ -11,7 +11,7 @@
     <br />
     <a href=""></a>
     ·
-    <a href="https://github.com/samyuktaprabhu/neogcamp-lesson-five-mark-right/issues">Report Bugs [OR] Report Issues</a>
+    <a href="https://github.com/samyuktaprabhu/neogcamp-lesson-five-mark-eight/issues">Report Bugs [OR] Report Issues</a>
     ·
 </div>
 
