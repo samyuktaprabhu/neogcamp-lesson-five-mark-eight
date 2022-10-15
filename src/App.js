@@ -1,8 +1,8 @@
 import "./styles.css";
 import React, { useState } from "react";
 
-const userName = prompt("Please enter your name");
-
+//const userName = prompt("Please enter your name");
+const userName = "SuperGirlSam";
 const emojiDictionary = {
   "😀": "Grinning Face",
   "😃": "Grinning Face with Big Eyes",
@@ -221,34 +221,38 @@ const emojiDictionary = {
   "💄": "Lipstick",
   "💍": "Ring",
   "💼": "Briefcase",
-  "🩸": "Drop of Blood"
+  "🩸": "Drop of Blood",
 };
 
+const emo = Object.keys(emojiDictionary);
 export default function App() {
-  const [likeCounter, setLikeCounter] = useState(0);
+  //const [likeCounter, setLikeCounter] = useState(0);
+  // function searchFunction() {
+  //   var newlikeCounter = likeCounter + 1;
+  //   setLikeCounter(newlikeCounter);
+  // }
 
-  //var likeCounter = 0;
-  function searchFunction() {
-    console.log("Clicked!");
-    var newlikeCounter = likeCounter + 1;
-    setLikeCounter(newlikeCounter);
-  }
-
-  const [emojiInput, setemojiInput] = useState("");
-  const [emojiMeaning, setemojiMeaning] = useState("");
+  const [emojiInput, setEmojiInput] = useState("");
+  const [emojiMeaning, setEmojiMeaning] = useState("");
 
   function emojiInputHandler(event) {
     //console.log(event.target.value);
-    var newemojiInput = event.target.value;
-    var newemojiMeaning = emojiDictionary[newemojiInput];
-    setemojiInput(newemojiInput);
+    var newEmojiInput = event.target.value;
+    var newEmojiMeaning = emojiDictionary[newEmojiInput];
+    setEmojiInput(newEmojiInput);
 
-    if (newemojiMeaning === undefined) {
-      newemojiMeaning = "We do not have this in our database.";
+    if (newEmojiMeaning === undefined) {
+      newEmojiMeaning = "We do not have this in our database.";
     } else {
-      newemojiMeaning = "Meaning is " + newemojiMeaning;
+      newEmojiMeaning = "Meaning is " + newEmojiMeaning;
     }
-    setemojiMeaning(newemojiMeaning);
+    setEmojiMeaning(newEmojiMeaning);
+  }
+
+  function emojiClickHandler(emoji) {
+    var newEmojiMeaning = emojiDictionary[emoji];
+    setEmojiInput(emoji);
+    setEmojiMeaning(newEmojiMeaning);
   }
 
   return (
@@ -259,8 +263,21 @@ export default function App() {
       <h4> you searched for {emojiInput}</h4>
       <h4> {emojiMeaning}</h4>
 
-      <button onClick={searchFunction}> Hit if you liked it! xD </button>
-      <h3> Total number of likes : {likeCounter} </h3>
+      {/* <button onClick={searchFunction}> Hit if you liked it! xD </button>
+      <h3> Total number of likes : {likeCounter} </h3> */}
+      <hr />
+      <h1> Choose from an emoji to find the meaning! </h1>
+      {emo.map((emoji) => {
+        return (
+          <span
+            style={{ padding: "1rem", margin: "auto", cursor: "pointer" }}
+            onClick={() => emojiClickHandler(emoji)}
+          >
+            {" "}
+            {emoji}{" "}
+          </span>
+        );
+      })}
     </div>
   );
 }
