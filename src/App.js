@@ -2,7 +2,7 @@ import "./styles.css";
 import React, { useState } from "react";
 
 //const userName = prompt("Please enter your name");
-const userName = "SuperGirlSam";
+const userName = "User";
 const emojiDictionary = {
   "😀": "Grinning Face",
   "😃": "Grinning Face with Big Eyes",
